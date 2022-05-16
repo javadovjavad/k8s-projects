@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: api-ingress
+  namespace: development
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: ad3c4a00cd8334a008a930fc5b5ae3d2-77b300805d5dc368.elb.us-east-1.amazonaws.com
+    http:
+      paths:
+      - backend:
+          serviceName: frontendsvc
+          servicePort: 80
+        path: /
